@@ -1,0 +1,35 @@
+import * as React from 'react'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import dynamic from 'next/dynamic'
+import { Menu } from './Menu'
+import { Settings } from './Settings'
+
+const MobileSearch = dynamic(() => import('~/components/Search/Base/Mobile').then((m) => m.MobileSearch), {
+	ssr: false,
+	loading: () => <></>
+}) as React.FC
+
+export const MobileNav = React.memo(function MobileNav() {
+	const router = useRouter()
+
+	return (
+		<nav className="flex items-center z-10 gap-2 py-3 px-4 bg-[linear-gradient(168deg,#347940_3.98%,#44d06f_100%)] lg:hidden">
+			{/* <Link href="/" passHref>
+				<a className="flex-shrink-0 mr-auto">
+					<span className="sr-only">Navigate to Home Page</span>
+					<img
+						src="/defillama-press-kit/defi/PNG/defillama.png"
+						alt=""
+						height={36}
+						width={105}
+						className="object-contain object-left mr-auto"
+					/>
+				</a>
+			</Link> */}
+			{!router.pathname.startsWith('/yield') && !router.pathname.startsWith('/raises') ? <MobileSearch /> : null}
+			<Settings />
+			<Menu />
+		</nav>
+	)
+})

@@ -1,0 +1,1 @@
+export { getStaticPathsByType, default, getStaticProps } from './chains'

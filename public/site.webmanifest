@@ -1,0 +1,14 @@
+{
+	"name": "Sonic Analytics",
+	"short_name": "Analytic",
+	"icons": [
+		{
+			"src": "/",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	],
+	"theme_color": "#ffffff",
+	"background_color": "#ffffff",
+	"display": "standalone"
+}
